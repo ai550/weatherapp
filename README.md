@@ -1,4 +1,4 @@
-# WeatherApp
+# WeatherApp v0.1
 
 Project #1 for my portfolio.
 

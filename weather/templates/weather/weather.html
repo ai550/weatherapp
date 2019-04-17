@@ -8,17 +8,28 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>WeatherApp</title>
     <style>
+        body {
+        {#background: url("../../static/world.svg");#} background-image: linear-gradient(-45deg, #FFC796 0%, #FF6B95 100%);
+            margin: 0;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
         .weather-card {
             background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
-            min-width: 400px;
+            min-width: 300px;
             height: 120px;
             border-radius: 10px;
-            padding: 20px 20px;
-            margin: 10px 10px;
+            padding: 20px 15px;
+            margin: 0px 0px 10px 0px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
 
-        h1, .weather-card h3, h4, h5, p {
+        h1 {
+            color: #FFFFFF;
+        }
+
+        .weather-card h3, h4, h5, p {
             color: #707070;
             font-family: Avenir Next;
         }
@@ -29,35 +40,39 @@
 
 <div class="container">
     <br>
-    <h1>WeatherApp</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <div class="input-group mb-3">
-            {{ form.name }}
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Add City</button>
-            </div>
+    <div class="row">
+        <div class="col-12">
+            <h1>WeatherApp</h1>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="input-group mb-3">
+                    {{ form.name }}
+                    <div class="input-group-append">
+                        <button class="btn btn-danger" type="submit" id="button-addon2">Add City</button>
+                    </div>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
     <div class="row">
         {% for city_weather in weather_data %}
-            <div class="col-12 col-sm-6">
+            <div class="col-12 col-sm-12 col-md-6">
                 <div class="weather-card">
                     <div class="row">
-                        <div class="col-12 col-md-9">
-                            <h3 class="float-left">{{ city_weather.city }}, {{ city_weather.country }}</h3>
+                        <div class="col-8 col-sm-6 col-md-9">
+                            <h4 class="float-left">{{ city_weather.city }}, {{ city_weather.country }}</h4>
                         </div>
-                        <div class="col-12 col-md-3">
+                        <div class="col-4 col-sm-6 col-md-3">
                             <img class="float-right" src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png"
                                  alt="Weather icon">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12 col-md-9">
-                            <h5 class="float-left">{{ city_weather.description }}</h5>
+                        <div class="col-8 col-sm-7 col-md-9">
+                            <p class="float-left">{{ city_weather.description }}</p>
                         </div>
-                        <div class="col-12 col-md-3">
-                            <h5 class="float-right">{{ city_weather.temperature }}° C</h5>
+                        <div class="col-4 col-sm-5 col-md-3">
+                            <p class="float-right">{{ city_weather.temperature }}°C</p>
                         </div>
                     </div>
                 </div>

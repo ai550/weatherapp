@@ -13,7 +13,7 @@ from .forms import CityForm
 
 def index(request):
     # OpenWeatherMap API endpoint
-    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&APPID={}'
+    url = 'https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&APPID={}'
     api_key = 'c4af811c05a1cdeea2526001714ae63c'
 
     if request.method == 'POST':

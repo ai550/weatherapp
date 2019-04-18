@@ -6,13 +6,12 @@
     <meta name="description" content="">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>WeatherApp</title>
+    <title>Super Weather Dashboard</title>
     <style>
         body {
-        {#background: url("../../static/world.svg");#} background-image: linear-gradient(-45deg, #FFC796 0%, #FF6B95 100%);
-            margin: 0;
+            background: url("../../static/world.svg");
+        {#background-image: linear-gradient(-45deg, #FFC796 0%, #FF6B95 100%);{#margin: 0;#} background-size: cover;
             background-repeat: no-repeat;
-            background-attachment: fixed;
         }
 
         .weather-card {
@@ -21,18 +20,21 @@
             height: 120px;
             border-radius: 10px;
             padding: 20px 15px;
-            margin: 0px 0px 10px 0px;
+            margin: 0px 0px 15px 0px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
 
         h1 {
-            color: #FFFFFF;
+            background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .weather-card h3, h4, h5, p {
             color: #707070;
             font-family: Avenir Next;
         }
+
     </style>
 </head>
 <body>
@@ -42,7 +44,7 @@
     <br>
     <div class="row">
         <div class="col-12">
-            <h1>WeatherApp</h1>
+            <h1>Super Weather Dashboard</h1>
             <form method="POST">
                 {% csrf_token %}
                 <div class="input-group mb-3">
@@ -56,7 +58,7 @@
     </div>
     <div class="row">
         {% for city_weather in weather_data %}
-            <div class="col-12 col-sm-12 col-md-6">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4">
                 <div class="weather-card">
                     <div class="row">
                         <div class="col-8 col-sm-6 col-md-9">

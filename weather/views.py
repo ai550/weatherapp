@@ -2,13 +2,13 @@ import requests
 from django.shortcuts import render
 from .models import City
 from .forms import CityForm
-import wikipedia
+# import wikipedia
 
 
 # Create your views here.
 
-def get_wiki_summary(city):
-    return wikipedia.summary(city, sentences=2)
+# def get_wiki_summary(city):
+#     return wikipedia.summary(city, sentences=2)
 
 
 def index(request):
@@ -32,14 +32,14 @@ def index(request):
     # loop through cities, get weather data for each, store in weather_data
     for city in cities:
         r = requests.get(url.format(city, api_key)).json()
-        city_summary = get_wiki_summary(city)
+        # city_summary = get_wiki_summary(city)
         city_weather = {
             'city': city.name,
             'temperature': r['main']['temp'],
             'description': r['weather'][0]['description'],
             'icon': r['weather'][0]['icon'],
             'country': r['sys']['country'],
-            'summary': city_summary
+            # 'summary': city_summary
         }
 
         weather_data.append(city_weather)

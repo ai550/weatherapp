@@ -59,9 +59,7 @@
     <div class="row">
         {% for city_weather in weather_data %}
             <div class="col-12 col-sm-12 col-md-6 col-lg-4">
-                <div class="weather-card" data-toggle="modal" data-target="#summaryModal"
-                     data-city="{{ city_weather.city }}, {{ city_weather.country }}"
-                     data-summary="{{ city_weather.summary }}">
+                <div class="weather-card">
                     <div class="row">
                         <div class="col-8 col-sm-6 col-md-9">
                             <h4 class="float-left">{{ city_weather.city }}, {{ city_weather.country }}</h4>
@@ -83,22 +81,22 @@
             </div>
         {% endfor %}
     </div>
-    <div class="modal fade" id="summaryModal" tabindex="-1" role="dialog" aria-labelledby="summaryModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="summaryModalLabel"></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p></p>
-                </div>
-            </div>
-        </div>
-    </div>
+{#    <div class="modal fade" id="summaryModal" tabindex="-1" role="dialog" aria-labelledby="summaryModalLabel"#}
+{#         aria-hidden="true">#}
+{#        <div class="modal-dialog" role="document">#}
+{#            <div class="modal-content">#}
+{#                <div class="modal-header">#}
+{#                    <h5 class="modal-title" id="summaryModalLabel"></h5>#}
+{#                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">#}
+{#                        <span aria-hidden="true">&times;</span>#}
+{#                    </button>#}
+{#                </div>#}
+{#                <div class="modal-body">#}
+{#                    <p></p>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -109,17 +107,17 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-<script type="application/javascript">
-    $('#summaryModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) // Button that triggered the modal
-        var city = button.data('city') // Extract info from data-* attributes
-        var summary = button.data('summary')
-        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-        var modal = $(this)
-        modal.find('.modal-title').text(city)
-        modal.find('.modal-body p').text(summary)
-    })
-</script>
+{#<script type="application/javascript">#}
+{#    $('#summaryModal').on('show.bs.modal', function (event) {#}
+{#        var button = $(event.relatedTarget) // Button that triggered the modal#}
+{#        var city = button.data('city') // Extract info from data-* attributes#}
+{#        var summary = button.data('summary')#}
+{#        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).#}
+{#        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.#}
+{#        var modal = $(this)#}
+{#        modal.find('.modal-title').text(city)#}
+{#        modal.find('.modal-body p').text(summary)#}
+{#    })#}
+{#</script>#}
 </body>
 </html>
